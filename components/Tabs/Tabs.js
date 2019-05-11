@@ -15,7 +15,9 @@ class TabLink {
     if(this.tabData === 'all'){
       // If `all` is true, select all cards regardless of their data attribute values
       // this.cards = ;
-      this.cards = document.querySelectorAll(`.tab[data-tab="all"]`);
+      // this.cards = document.querySelectorAll(`.tab[data-tab="all"]`);
+      this.cards = document.querySelectorAll(`.tab[data-tab]`);
+
     } else {
       // else if `all` is false, only select the cards with matching this.tabData values
       // this.cards = ;
@@ -26,7 +28,10 @@ class TabLink {
     // statement above. Convert each this.cards element into a new instance
     // of the TabCard class. Pass in a card object to the TabCard class.
     // this.cards = Array.from(this.cards).map();
-    this.cards = Array.from(this.cards).map(new this.TabCard);
+    // this.cards = Array.from(this.cards).map(new this.TabCard);   <= this was my original
+    this.cards = Array.from(this.cards).map(i => {
+      new TabCard(i);
+    });
 
     // Add a click event that invokes this.selectTab
     // this.tabElement.addEventListener();
@@ -57,8 +62,9 @@ class TabLink {
     
     // Add a class of ".active-tab" to this.tabElement
     // this.tabElement;
-    this.tabElement.classList.add('active-tab');
-  
+    // this.tabElement.classList.add('active-tab');
+    console.log(this.tabElement.classList.add('active-tab'));
+
     // Notice we are looping through the this.cards array and invoking selectCard() from the TabCard class.
     // Just un-comment the code and study what is happening here.
     // this.cards.forEach(card => card.selectCard());
