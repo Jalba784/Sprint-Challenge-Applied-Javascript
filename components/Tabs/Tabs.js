@@ -14,11 +14,12 @@ class TabLink {
     if(this.tabData === 'all'){
       // If `all` is true, select all cards regardless of their data attribute values
       // this.cards = ;
-      this.cards.select('all');
+      this.cards = document.querySelectorAll(`.tab[data-tab="all"]`);
     } else {
       // else if `all` is false, only select the cards with matching this.tabData values
       // this.cards = ;
-      this.cards.select(this.tabData);
+      // this.cards.select(this.tabData);
+      this.cards = document.querySelectorAll(`.tab[data-tab="${this.tabData}"]`);
     }
 
      // Map over the newly converted NodeList we just created in our if
