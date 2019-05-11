@@ -6,7 +6,8 @@ class TabLink {
     
     // Get the `data-tab` value from this.tabElement and store it here
     // this.tabData = ;
-    this.tabData = this.tabElement.dataset.tab;
+    // this.tabData = this.tabElement.dataset.tab;
+    this.tabData = document.querySelector(`.tab[data-tab="${this.tabElement.dataset.tab}"]`);
 
     // We need to find out if a user clicked 'all' cards or a specific category.  Follow the instructions below to accomplish this task:    
     
