@@ -6,8 +6,8 @@ class TabLink {
     
     // Get the `data-tab` value from this.tabElement and store it here
     // this.tabData = ;
-    // this.tabData = this.tabElement.dataset.tab;
-    this.tabData = document.querySelector(`.tab[data-tab="${this.tabElement.dataset.tab}"]`);
+    this.tabData = this.tabElement.dataset.tab;
+    // this.tabData = document.querySelector(`.tab[data-tab="${this.tabElement.dataset.tab}"]`);
 
     // We need to find out if a user clicked 'all' cards or a specific category.  Follow the instructions below to accomplish this task:    
     
@@ -15,12 +15,13 @@ class TabLink {
     if(this.tabData === 'all'){
       // If `all` is true, select all cards regardless of their data attribute values
       // this.cards = ;
-      // this.cards = document.querySelectorAll(`.tab[data-tab="all"]`);
-      this.cards = document.querySelectorAll(`.tab[data-tab]`);
+      this.cards = document.querySelectorAll(`.card`);
 
     } else {
       // else if `all` is false, only select the cards with matching this.tabData values
       // this.cards = ;
+      // this.cards = document.querySelectorAll(`.tab[data-tab="${this.tabData}"]`);
+      // this.cards = document.querySelectorAll(`.card[data-tab="${this.tabData}"]`);
       this.cards = document.querySelectorAll(`.tab[data-tab="${this.tabData}"]`);
     }
 
@@ -35,7 +36,7 @@ class TabLink {
 
     // Add a click event that invokes this.selectTab
     // this.tabElement.addEventListener();
-    this.tabElement.addEventListener('click', this.selectTab);
+    this.tabElement.addEventListener('click', selectTab);
   }
 
   selectTab(){
@@ -62,10 +63,10 @@ class TabLink {
     
     // Add a class of ".active-tab" to this.tabElement
     // this.tabElement;
-    // this.tabElement.classList.add('active-tab');
-    console.log(this.tabElement.classList.add('active-tab'));
+    this.tabElement.classList.add('active-tab');
 
-    // Notice we are looping through the this.cards array and invoking selectCard() from the TabCard class.
+    // Notice we are looping through the this.cards array and invoking selectCard()
+    // from the TabCard class.
     // Just un-comment the code and study what is happening here.
     // this.cards.forEach(card => card.selectCard());
     this.cards.forEach(card => card.selectCard());
